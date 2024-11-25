@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="index.css">
+  <script src="index.js" crossorigin="anonymous"></script>
+  <title>Site de vendas feito por Kawã Kleber</title>
+   <style>
+     /* Cores */
+:root {
+  --primary-color: #F4CBC6; /*Rosa claro*/
+  --secondary-color: #F4EEA9; /*Amarelo claro*/
+  --text-color: #1C110A; /*Preto licorice*/
+  --third-color: #FCF7F8; /*Branco*/ 
+  --support-color: #F4AFAB; /*Rosa*/
+}
+
+/* Tipografia */
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  background-color: var(--support-color);
+}
+
+h1, h2, h3 {
+  font-weight: bold;
+}
+
+h2, h3 {
+  color: var(--third-color);
+}
+
+h1 {
+  text-align: center;
+  font-size: 3em;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(to right, #ff7e5f, #feb47b);
+  -webkit-background-clip: text;
+  color: transparent;
+  font-size: 48px;
+}
+
+/* Layout dos containers */
+.grid-container-1 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 2em;
+  padding: 2em; /* Adicione padding ao container para evitar sobreposição com a borda da seção */
+  color:#1C110A;
+}
+.grid-container-1 h3, h2, p {
+  color:#1C110A;
+}
+
+.grid-container-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 2em;
+  padding: 2em; /* Adicione padding ao container para evitar sobreposição com a borda da seção */
+  color: #1C110A;
+}
+.grid-container-2 h3, h2, p {
+  color:#1C110A;
+}
+.grid-container-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 2em;
+  padding: 2em; /* Adicione padding ao container para evitar sobreposição com a borda da seção */
+  color:#1C110A;
+}
+.grid-container-3 h3, h2, p {
+  color:#1C110A;
+}
+.grid-container-4 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 2em;
+  padding: 2em; /* Adicione padding ao container para evitar sobreposição com a borda da seção */
+  color:#1C110A;
+}
+.grid-container-4 h3, ul , li {
+  color:#1C110A;
+}
+section {
+  padding: 2em;
+  margin-bottom: 2em;
+  border: 1px solid #ddd; /* Adiciona uma borda sutil às seções */
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.1); /* Fundo semi-transparente para as seções */
+  transition: opacity 0.5s ease-in-out;
+  color: #ffffff;
+}
+
+section.fade-in {
+  opacity: 1;
+}
+
+section i {
+  margin-right: 10px;
+  font-size: 1.2em;
+}
+
+/* Imagens */
+img {
+  max-width: 100%;
+  height: auto;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-radius: 5px;
+}
+
+/* Botões e Links */
+.button {
+  display: inline-block;
+  padding: 1em 2em;
+  background: linear-gradient(to right C);
+  color:#1C110A;
+  border-color: #F4AFAB;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  margin-left: 10px; /* Mantém o espaçamento à esquerda */
+  position: relative; /* Define a posição relativa para o efeito do círculo */
+  overflow: hidden; /* Esconde o círculo quando ele ultrapassa o botão */
+}
+
+.button:hover {
+  background: linear-gradient(to right, #ff7e5f, #feb47b);
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.button:active {
+  transform: scale(1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.button::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background-color: #fff;
+  opacity: 0;
+  transition: width 0.3s ease, height 0.3s ease, opacity 0.3s ease;
+  z-index: -1; /* Coloca o círculo atrás do texto do botão */
+}
+
+.button:hover::after {
+  width: 200px; /* Aumenta a área do círculo */
+  height: 200px; 
+  opacity: 1;
+}
+
+
+/* Ícones Sociais */
+.btn-contact {
+    color:#ddd;
+    background:#F4CBC6;
+    border-color: #F4CBC6;
+    text-align: center;
+    align-items: center;
+    border-radius: 4px;
+    width:15%;
+    height: 40px;
+    display: inline-block;
+    padding: 1em 2em;
+    color:#1C110A;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    margin-left: 10px; /* Mantém o espaçamento à esquerda */
+    position: relative; /* Define a posição relativa para o efeito do círculo */
+    overflow: hidden; /* Esconde o círculo quando ele ultrapassa o botão */
+    
+}
+.btn-contact:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+.btn-contact:active {
+  transform: scale(1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.btn-contact::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+  border-radius: 10%;
+  background-color: #FCF7F8;
+  opacity: 0;
+  transition: width 0.3s ease, height 0.3s ease, opacity 0.3s ease;
+}
+
+.btn-contact:hover::after {
+  width: 130px; /* Aumenta a área do círculo */
+  height: 40px; 
+  opacity: 1;
+}
+.btn-contact:hover::before {
+  transform: scale(1.1);
+}
+
+/* Você pode personalizar as cores de cada botão se quiser */
+/* .social-button:nth-child(2)::before {  WhatsApp  }
+.social-button:nth-child(3)::before {  Facebook  } */
+
+/* Estilos específicos */
+header {
+  background-color: var(--support-color);
+  padding: 1em 0;
+  text-align: center;
+}
+header p {
+  color: #1C110A;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background-color: var(--primary-color);
+  text-align: center;
+}
+.top-section {
+  color:#1C110A;       
+}
+
+/*Estlio adcional ao parafráfo do formuário de leads*/
+.paragraph-form {
+  padding-bottom: 60px;
+}
+
+nav li {
+  display: inline-block;
+  margin: 0 1em;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(----secondary-color);
+  padding: 0.5em 1em;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: darken(var(--primary-color), 10%);
+}
+
+nav a.active {
+  color: var(--secondary-color);
+  font-weight: bold;
+}
+
+main {
+  max-width: 960px;
+  margin: 2em auto;
+  padding: 0 1em;
+}
+main btn {
+  text-decoration: #1C110A;
+}
+.hero-image {
+  background-color: black;
+  background-size: cover;
+  background-position: center;
+  min-height: 300px;
+  position: relative;
+}
+
+.hero-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;;
+}
+.text{
+  color:#FCF7F8;
+}
+
+.footer {
+  background-color: var( --primary-color);
+  color: var(--text-color);
+  padding: 1em 0;
+  text-align: center;
+}
+/*Background das seções*/
+ #services {
+  background-color: #F4CBC6;
+ }
+ #portifolio {
+  background-color: #F4CBC6;
+ }
+ #contact {
+  background-color: #F4CBC6;
+ }
+ #contact-form {
+  color: #1C110A;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px auto; /* Centraliza horizontalmente na página */
+  padding: 30px; /* Aumenta o padding interno */
+  border: 1px solid #ddd;
+  border-radius: 8px; /* Ajusta o raio da borda */
+  width: 80%; /* Ocupa 80% da largura do contêiner pai */
+  max-width: 600px; /* Largura máxima para telas maiores */
+  background-color: rgba(255, 255, 255, 0.1); /* Fundo semi-transparente */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra mais suave */
+}
+
+#contact-form input,
+#contact-form textarea {
+  padding: 12px; /* Aumenta o padding dos campos */
+  margin: 15px 0; /* Aumenta o espaçamento entre os campos */
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  width: calc(100% - 26px); /* Ajusta a largura para considerar o padding e a borda */
+  box-sizing: border-box;
+  font-size: 16px; /* Aumenta o tamanho da fonte dos campos */
+  color: var(--text-color); /* Define a cor do texto dos campos */
+}
+
+#contact-form input::placeholder,
+#contact-form textarea::placeholder {
+  color: rgba(255, 255, 255, 0.7); /* Define a cor do placeholder */
+}
+
+#contact-form input:focus,
+#contact-form textarea:focus {
+  outline: none; /* Remove a borda padrão do foco */
+  box-shadow: 0 0 5px rgba(255, 140, 0, 0.5); /* Adiciona uma sombra suave ao focar */
+}
+
+#contact-form input.error,
+#contact-form textarea.error {
+  border-color: #ff5733; /* Define a cor da borda para erro */
+}
+/* Estilos do botão dentro do formulário */
+#contact-form .button {
+  margin-top: 20px;
+  width: 100%; /* O botão ocupa toda a largura do formulário */
+  text-align: center; /* Centraliza o texto do botão */
+}
+
+  </style>
+<head>
+ <title> Doce fragancia.com</title>
+</head>
+
+<body>
+  <header>
+      <a href="#" class="logo">
+     </a>
+    <p>Bem vindo a doce frangancia...A Percusora de novos Horizontes!</p>
+  </header>
+
+  <nav>
+    <ul class ="top-section">
+      <li><a href="#about">Sobre</a></li>
+      <li><a href="#services">Serviços</a></li>
+      <li><a href="#portfolio">Portfólio</a></li>
+      <li><a href="#contact">Contato</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section id="about" class="hero-image">
+      <div class="hero-text">
+        <div>
+        <h2 class="text">Doce Frangancia</h2>
+        <p class ="text">Somos uma empresa de tecnologia dedicada a criar  e construir soluções inovadoras para o futuro.</p>
+        <a href="#contact" class="button">Saiba mais</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <h2 align="center">Nossos Serviços</h2>
+      <div class="grid-container-1">
+        <div>
+          <img src="https://tse4.mm.bing.net/th/id/OIG1.El9zHILbGjKRLSuVAK6N?pid=ImgGn" alt="Projeto 1">
+          <h3>Software Skills</h3>
+          <p>Desenvolvemos softwares de alta qualidade para atender às necessidades específicas do seu negócio.</p>
+        </div>
+        <div>
+          <img src="https://tse4.mm.bing.net/th/id/OIG1.rmZu3TPH55d.TJCcBBvX?pid=ImgGn" alt="Projeto 1">
+          <h3>Malware Legalized</h3>
+          <p>Oferecemos soluções avançadas de segurança cibernética para proteger seus dados e sistemas contra ameaças.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="portifolio">
+      <h2 align="center">"A junção de dois mundos"</h2>
+      <div class="grid-container-2">
+        <div>
+          <img src="https://tse2.mm.bing.net/th/id/OIG1.ilaivlFwIQxBITZ.Na9p?pid=ImgGn" alt="Produto teste">
+          <h3>Rede de cosmedicos desenvolvidos com IA </h3>
+          <p>Descrição do Projeto 1. Uma plataforma inovadora que oferece aos usuários controle total sobre suas finanças.</p>
+        </div>
+        <div>
+          <img src="https://tse3.mm.bing.net/th/id/OIG1.tm461pTuyFdgk358jhaE?pid=ImgGn" alt="Produto teste 2">
+          <h3>Rede de produtos criados a partir da IA</h3>
+          <p>Descrição do Projeto 2. Uma plataforma de educação online que oferece cursos de alta qualidade sobre as últimas tecnologias.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div align="center">
+
+      <h2>Entre em contato</h2>
+      <p>Email: kawaklebersc@gmail.com</p>
+      <p class="paragraph-form">Nossas Mídias Sociaís: Instagram, whatsappp, facebook</p>
+
+      </div>
+      <ul align="center">
+
+        <button  class="btn-contact">WhatsApp</button>
+
+        <button  class="btn-contact"> Instagram</button>
+
+        <button  class="btn-contact">Facebook</button>
+
+      </ul>
+    </section>
+   
+<section id="contact">
+  <div style="text-align: center;">
+  <h2>Cadastre-se em nossa plataforma e tenha acesso as noviades do univero da IA</h2>
+  </div>
+  <form id="contact-form">
+    <label for="nome">Nome:</label> 
+      <input type="text" id="nome" name="nome" placeholder="Digite seu nome">
+
+    <label for="email">Email:</label> 
+       <input type="email" id="email" name="email" placeholder="Digite seu email">
+
+    <label for="idade">Idade:</label> 
+       <input type="number" id="idade" name="idade" placeholder="Digite sua idade">
+  
+  <button class="button" type="submit">Enviar</button> 
+
+</form>
+</section>
+  <h2>Sobre</h2>
+  <p style="text-align: justify;">A S.KSynergy Enterprises é uma empresa de tecnologia líder no mercado, especializada em desenvolver soluções inovadoras para atender às necessidades das empresas modernas. Com uma equipe experiente de engenheiros e desenvolvedores, oferecemos uma ampla gama de serviços, incluindo software sob medida, segurança cibernética e soluções em nuvem.</p>
+  <p style="text-align: justify;">Estamos comprometidos em fornecer aos nossos clientes soluções de alta qualidade que os ajudem a atingir seus objetivos de negócios e manter uma vantagem competitiva. Acreditamos que a tecnologia deve ser usada como uma ferramenta para capacitar empresas e indivíduos a desbloquear seu pleno potencial.</p>
+</section>
+
+<section id="services" class="container">
+  <h2 align ="center">Serviços</h2>
+  <div class="grid-container-4">
+    <div>
+       <img src="https://tse2.mm.bing.net/th/id/OIG2.FYF5vUx9UFUmr4jsftfx?pid=ImgGn" alt="software">
+      <h3>Software Skills</h3>
+      <p  style="text-align: justify;">Desenvolvemos softwares de alta qualidade para atender às necessidades específicas do seu negócio. Desde sistemas de gerenciamento de dados personalizados até aplicativos móveis de última geração, nossa equipe de desenvolvimento possui a habilidade e a experiência para transformar sua visão em realidade.</p>
+      <ul>
+        <li>Análise e Design de Sistemas</li>
+        <li>Desenvolvimento Front-End e Back-End</li>
+        <li>Integração de Sistemas</li>
+      </ul>
+      <br>
+      <a href="#" class="button">Saiba mais</a>
+    </div>
+    <div>
+      <img src="https://tse3.mm.bing.net/th/id/OIG1.O_9UzbVBTlomVTGH38Zf?pid=ImgGn" alt="Malwere">
+      <h3>Malwere Legalized</h3>
+      <p style="text-align: justify;">Proteja seus dados e sistemas contra ameaças cibernéticas com nossas soluções avançadas de segurança cibernética. Nossa equipe especializada monitora continuamente as ameaças mais recentes e implementa medidas proativas para garantir que seus dados e sistemas estejam sempre seguros.</p>
+      <ul>
+        <li>Proteção contra Malware</li>
+        <li>Detecção e Resposta a Incidentes</li>
+        <li>Gerenciamento de Vulnerabilidades</li>
+      </ul>
+      <br>
+      <a href="#" class="button">Saiba mais</a>
+    </div>
+  </div>
+</section>
+
+<section id="portifolio" class="container">
+  <h2 align="center">Produtos desenvolvidos com o auxílio da tecnologia S.K</h2>
+  <div class="grid-container-3">
+    <div>
+      <img src="https://tse1.mm.bing.net/th/id/OIG2.FX4h2tlIwmyMnwCm3xE9?pid=ImgGn" alt="Produto 1">
+      <h3>Produto numero 2</h3>
+      <p style="text-align: justify;">Dados de vendas da empresa de varejo X: ao rodar o programa, observamos a variação do montante acumulado ao longo das vendas dos semestres.</p>
+    </div>
+    <div>
+      <img src="https://tse4.mm.bing.net/th/id/OIG2.4VfyRe4GeB3aDNHIb5f6?pid=ImgGn" alt="Produto 2">
+      <h3>Produto numero 2</h3>
+      <p  style="text-align: justify;">Dados de vendas da concessionária Y: ao rodar o código, observamos a variação da venda de carros e motos ao longo de 12 meses do ano Z. Obtendo informações valiosas para as estratégias de vendas.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="container">
+  <h2 align ="center">Contato</h2>
+  <img src="https://tse4.mm.bing.net/th/id/OIG2.VDIK.tPUWsXaqSSV2qw5?pid=ImgGn" alt="Rede de produtos">
+  <div class="section-end">
+    <p>Estamos sempre disponíveis para discutir suas necessidades de tecnologia. Entre em contato conosco hoje mesmo para agendar uma consulta gratuita.</p>
+    <p>Email: <a href="mailto:kawaklebersc@gmail.com">kawaklebersc@gmail.com</a></p>
+    <p>Social Media:</p>
+    <div class="social-media-icons">
+        <a href="https://www.instagram.com" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/yourwhatsappnumber" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://www.facebook.com" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+    </div>
+</div>
+  </main>
+  <footer>
+    <p>© 2024 S.K Synergy Enterprises</p>
+  </footer>
+</body>
+</html>
